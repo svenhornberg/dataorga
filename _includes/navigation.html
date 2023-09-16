@@ -1,0 +1,19 @@
+<ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
+    <a href="/"><li><i class="bi bi-person-lines-fill"></i> Home</li></a>
+    <hr>
+    <!-- Rollen -->
+    {% assign sorted = site.pages | where:"tags","role" | where:"tags","point" | sort: 'title'%}
+    {% for page in sorted %}
+    <a href="{{page.url | relative_url}}"><li><i class="bi {{page.icon}}"></i> {{page.title}}</li></a>
+    {% endfor %}
+    {% assign sorted = site.pages | where:"tags","role" | where:"tags","subpoint" | sort: 'title'%}
+    {% for page in sorted %}
+    <a href="{{page.url | relative_url}}"><li><i class="bi {{page.icon}}"></i> {{page.title}}</li></a>
+    {% endfor %}
+    <hr>
+    <!-- Prozesse -->
+    {% assign sorted = site.pages | where:"tags","process" | sort: 'title'%}
+    {% for page in sorted %}
+    <a href="{{page.url | relative_url}}"><li><i class="bi {{page.icon}}"></i> {{page.title}}</li></a>
+    {% endfor %}
+</ul>
